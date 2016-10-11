@@ -1,0 +1,1 @@
+!function(){"use strict";angular.module("uptime",[])}(),function(){"use strict";angular.module("uptime").component("listElementComponent",{bindings:{users:"<"},templateUrl:"WebsiteList/list_element.html",controller:[function(){}]})}();null//# sourceMappingURL=app.js.mapnull
