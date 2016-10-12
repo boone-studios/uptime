@@ -98,6 +98,8 @@ gulp.task('modules', () => {
     nodePath + 'jquery/dist/jquery.min.js',
     nodePath + 'tether/dist/js/tether.min.js',
     nodePath + 'bootstrap/dist/js/bootstrap.min.js',
+    nodePath + 'moment/moment.js',
+    nodePath + 'angular-moment/angular-moment.min.js',
   ])
     .pipe(plumber({
       errorHandler: reportError,

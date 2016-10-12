@@ -16,15 +16,17 @@
             title: 'Boone Software',
             url: 'https://boone.io',
             method: 'GET',
-            status: 'online',
-            text: 'Online',
+            status: 'pending',
+            text: '',
+            checked: 0,
           },
           {
             title: '2 Cool Percussion',
             url: 'http://2coolpercussion.com',
             method: 'GET',
-            status: 'error',
-            text: '404 Not Found',
+            status: 'pending',
+            text: '',
+            checked: 0,
           },
         ];
 
@@ -46,6 +48,15 @@
             })
             .then(function (response) {
               console.log(response);
+              switch (response.status) {
+                case 200:
+                  key.status = 'online';
+                  key.text = 'Online';
+                  key.checked = Date.now();
+                  break;
+                default:
+                  break;
+              }
             },
 
             function (error) {

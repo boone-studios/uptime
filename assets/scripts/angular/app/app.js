@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('uptime', ['ngSanitize', 'ui.router', 'templates'])
+    .module('uptime', ['angularMoment', 'ngSanitize', 'ui.router', 'templates'])
     .run(function ($rootScope, $state, $uiRouter, $transitions) {
       //
     });
