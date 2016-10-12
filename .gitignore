@@ -38,3 +38,8 @@ jspm_packages
 
 # PhpStorm IDE files
 .idea
+
+# Compiled app
+public/ng-templates
+public/scripts
+public/styles
