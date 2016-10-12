@@ -10,9 +10,5 @@
       },
 
       templateUrl: 'WebsiteList/status_element.html',
-
-      controller: [function ($scope) {
-
-      }],
     });
 }());

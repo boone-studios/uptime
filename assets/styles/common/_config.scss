@@ -6,3 +6,11 @@ $brand-danger:  $oc-red-7 !default;
 
 $border-light:  1px solid $oc-gray-2;
 $border-dark:  1px solid darken($oc-gray-8, 7.5%);
+
+$enable-flex:               false !default;
+$enable-rounded:            false !default;
+$enable-shadows:            false !default;
+$enable-gradients:          false !default;
+$enable-transitions:        true !default;
+$enable-hover-media-query:  false !default;
+$enable-grid-classes:       true !default;

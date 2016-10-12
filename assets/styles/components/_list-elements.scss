@@ -2,7 +2,12 @@
   cursor: pointer;
   padding: $spacer;
 
+  &:first-of-type {
+    //border-radius: 0.5rem 0.5rem 0 0;
+  }
+
   &:last-of-type {
+    //border-radius: 0 0 0.5rem 0.5rem;
     box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.15);
   }
 }

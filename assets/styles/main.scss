@@ -8,6 +8,7 @@
 @import "bootstrap/scss/bootstrap";
 
 // Common
+@import "common/buttons";
 @import "common/defaults";
 @import "common/shame";
 
@@ -21,3 +22,4 @@
 
 // Themes
 @import "themes/theme-dark";
+@import "themes/theme-light";

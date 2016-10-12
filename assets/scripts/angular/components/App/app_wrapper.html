@@ -1,5 +1,13 @@
 <header>
-    <div class="brand" ng-bind-html="brand"></div>
+    <div class="row">
+        <div class="col-xs-6">
+            <div class="brand" ng-bind-html="brand"></div>
+        </div>
+
+        <div class="col-xs-6">
+            <button class="btn btn-xl btn-link pull-xs-right">Configure</button>
+        </div>
+    </div>
 </header>
 
 <div class="page" ui-view>
