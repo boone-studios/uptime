@@ -13,7 +13,7 @@
 
       controller: function ($scope) {
         this.status = 'pending';
-        this.status_text = null;
+        this.statusText = null;
       },
     });
 }());
