@@ -6,14 +6,13 @@
     .component('statusElementComponent', {
       bindings: {
         status: '<',
-        statusText: '<',
+        text: '<',
       },
 
       templateUrl: 'WebsiteList/status_element.html',
 
-      controller: function ($scope) {
-        this.status = 'pending';
-        this.statusText = null;
-      },
+      controller: [function ($scope) {
+
+      }],
     });
 }());
