@@ -56,12 +56,12 @@ class Monitor {
 
   main() {
     this.getEndpoints()
-      .then(function (endpoints) {
+      .then((endpoints) => {
         return q.all(endpoints.map((endpoint) => {
           return this.testEndpoint(endpoint);
         }))
       })
-      .then(function (results) {
+      .then((results) => {
         return q.all(results.map((result) => {
           return this.saveResult(result);
         }))
