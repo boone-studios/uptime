@@ -1,13 +1,21 @@
-<div class="panel panel-default" ng-repeat="site in $ctrl.sites">
+<div class="panel panel-default" ng-repeat="site in $ctrl.sites" data-toggle="collapse" data-target="#{{ 'panel-' + $index }}" aria-expanded="false" aria-controls="{{ 'panel-' + $index }}">
     <div class="panel-heading" role="tab">
         <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#{{ 'panel-' + $index }}" aria-expanded="true" aria-controls="collapseOne">
+            <!--a data-toggle="collapse" data-parent="#accordion" href="#{{ 'panel-' + $index }}" aria-expanded="true" aria-controls="collapseOne"-->
                 {{ site.title }}
-            </a>
+            <!--/a-->
+
+            <div class="pull-xs-right">
+                <status-element-component status="site.status" status-text="site.status_text"></status-element-component>
+            </div>
         </h4>
+
+        <span class="text-muted">{{ site.last_checked || 'Status pending' }}</span>
     </div>
 
-    <div id="{{ 'panel-' + $index }}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+    <div id="{{ 'panel-' + $index }}" class="panel-content panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+        <p>This monitor checks {{ site.url }} every 5 minutes. Typically, the website is online. Click here for more info.</p>
+
+        <button class="btn btn-danger btn-large btn-block">Delete Monitor</button>
     </div>
 </div>

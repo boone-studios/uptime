@@ -1,0 +1,32 @@
+.panel {
+  cursor: pointer;
+  padding: $spacer;
+
+  &:last-of-type {
+    box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.15);
+  }
+}
+
+.theme-dark {
+
+  .panel {
+    background-color: $oc-gray-8;
+    border: $border-dark;
+
+    &:hover {
+      background-color: $oc-gray-7;
+    }
+  }
+}
+
+.theme-light {
+
+  .panel {
+    background-color: $oc-white;
+    border: $border-light;
+
+    &:hover {
+      background-color: lighten($oc-gray-1, 1%);
+    }
+  }
+}

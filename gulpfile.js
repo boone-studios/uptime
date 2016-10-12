@@ -93,6 +93,7 @@ gulp.task('modules', () => {
 
   gulp.src([
     nodePath + 'angular/angular.min.js',
+    nodePath + 'angular-sanitize/angular-sanitize.min.js',
     nodePath + 'angular-ui-router/release/angular-ui-router.min.js',
     nodePath + 'jquery/dist/jquery.min.js',
     nodePath + 'tether/dist/js/tether.min.js',
