@@ -5,11 +5,49 @@
     .module('uptime')
     .component('listElementComponent', {
       bindings: {
-        users: '<',
       },
+
       templateUrl: 'WebsiteList/list_element.html',
-      controller: [function () {
-        var _this = this;
-      }]
+
+      controller: ['$scope', '$http', function ($scope, $http) {
+        this.statuses = [];
+        this.sites = [
+          {
+            title: 'Boone Software',
+            url: 'https://boone.io',
+            method: 'GET',
+          },
+          {
+            title: '2 Cool Percussion',
+            url: 'http://2coolpercussion.com',
+            method: 'GET',
+          },
+        ];
+
+        angular.forEach(this.sites, function (key, value) {
+          var req = {
+            data: key,
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            method: key.method,
+            url: '/status',
+          };
+
+          $http
+            .get('/status', {
+              params: {
+                data: key,
+              },
+            })
+            .then(function (response) {
+              console.log(response);
+            },
+
+            function (error) {
+              console.error(error);
+            });
+        });
+      }],
     });
 }());

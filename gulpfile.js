@@ -93,6 +93,7 @@ gulp.task('modules', () => {
 
   gulp.src([
     nodePath + 'angular/angular.min.js',
+    nodePath + 'angular-ui-router/release/angular-ui-router.min.js',
     nodePath + 'jquery/dist/jquery.min.js',
     nodePath + 'tether/dist/js/tether.min.js',
     nodePath + 'bootstrap/dist/js/bootstrap.min.js',
@@ -111,7 +112,7 @@ gulp.task('modules', () => {
 gulp.task('sass', () => {
   'use strict';
 
-  gulp.src(resPath + 'styles/main.css')
+  gulp.src(resPath + 'styles/main.scss')
     .pipe(plumber({
       errorHandler: reportError,
     }))

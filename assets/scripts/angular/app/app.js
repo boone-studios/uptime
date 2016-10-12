@@ -2,5 +2,8 @@
   'use strict';
 
   angular
-    .module('uptime', []);
+    .module('uptime', ['ui.router', 'templates'])
+    .run(function ($rootScope, $state, $uiRouter, $transitions) {
+      //
+    });
 }());
