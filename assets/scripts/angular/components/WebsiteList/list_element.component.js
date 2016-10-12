@@ -16,11 +16,15 @@
             title: 'Boone Software',
             url: 'https://boone.io',
             method: 'GET',
+            status: 'online',
+            status_text: 'Online',
           },
           {
             title: '2 Cool Percussion',
             url: 'http://2coolpercussion.com',
             method: 'GET',
+            status: 'error',
+            status_text: '404 Not Found',
           },
         ];
 

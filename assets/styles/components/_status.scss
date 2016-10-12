@@ -1,0 +1,25 @@
+.status {
+  border-radius: 100%;
+  display: inline-block;
+  height: 1rem;
+  position: relative;
+  top: -2px;
+  width: 1rem;
+  vertical-align: middle;
+
+  &.status-error {
+    background-color: $brand-danger;
+  }
+
+  &.status-online {
+    background-color: $brand-success;
+  }
+
+  &.status-pending {
+    background-color: $oc-gray-5;
+  }
+
+  &.status-warning {
+    background-color: $brand-warning;
+  }
+}

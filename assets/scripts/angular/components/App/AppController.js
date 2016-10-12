@@ -8,7 +8,7 @@
       ConfigService.promise
         .then(function () {
           // Set brand name
-          $scope.brand = ConfigService.getConfig().brand;
+          $scope.brand = ConfigService.getConfig().brand_raw;
         });
     },
   ]);
