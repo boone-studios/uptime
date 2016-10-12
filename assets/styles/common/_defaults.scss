@@ -4,3 +4,6 @@ body {
   color: $oc-black;
   padding: 1rem;
 }
+header {
+  margin: $spacer-y 0 ($spacer-y * 2) 0;
+}

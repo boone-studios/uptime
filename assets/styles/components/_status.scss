@@ -2,8 +2,6 @@
   border-radius: 100%;
   display: inline-block;
   height: 1rem;
-  position: relative;
-  top: -2px;
   width: 1rem;
   vertical-align: middle;
 
@@ -22,4 +20,9 @@
   &.status-warning {
     background-color: $brand-warning;
   }
+}
+
+.status-text {
+  color: $oc-gray-5;
+  font-size: 1rem;
 }
