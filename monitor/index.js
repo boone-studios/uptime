@@ -5,14 +5,13 @@
 'use strict';
 
 // Dependencies
-const q         = require('Q');
-const http      = require('q-io/http');
 const _         = require('underscore');
+const http      = require('q-io/http');
+const q         = require('q');
 const Endpoint  = require('../schema/endpoint');
 const Result    = require('../schema/result');
 
 class Monitor {
-
   getEndpoints() {
     let deferred = q.defer();
 
@@ -20,6 +19,7 @@ class Monitor {
       if (error) {
         deferred.reject(error);
       }
+
       deferred.resolve(results);
     });
 
@@ -34,6 +34,7 @@ class Monitor {
       if (error) {
         deferred.reject(error);
       }
+
       deferred.resolve(entity);
     });
 
@@ -47,7 +48,7 @@ class Monitor {
       deferred.resolve({
         code: res.code,
         body: res.body,
-        headers: res.headers
+        headers: res.headers,
       });
     });
 
@@ -56,20 +57,11 @@ class Monitor {
 
   main() {
     this.getEndpoints()
-      .then((endpoints) => {
-        return q.all(endpoints.map((endpoint) => {
-          return this.testEndpoint(endpoint);
-        }))
-      })
-      .then((results) => {
-        return q.all(results.map((result) => {
-          return this.saveResult(result);
-        }))
-      })
+      .then((endpoints) => q.all(endpoints.map((endpoint) =>  this.testEndpoint(endpoint))))
+      .then((results) => q.all(results.map((result) =>  this.saveResult(result))));
   }
 
   init() {
     setInterval(this.main, 5000);
   }
-
 }
