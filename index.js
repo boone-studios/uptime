@@ -8,6 +8,10 @@ const express = require('express');
 const http = require('q-io/http');
 const q = require('q');
 const _ = require('underscore');
+const mongoose = require('mongoose');
+
+// Connect to DB
+//mongoose.connect('mongodb://localhost/uptime');
 
 // Local dependencies
 //const statusCode = require('./status-code');
