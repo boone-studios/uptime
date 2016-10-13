@@ -95,6 +95,8 @@ gulp.task('modules', () => {
     nodePath + 'angular/angular.min.js',
     nodePath + 'angular-sanitize/angular-sanitize.min.js',
     nodePath + 'angular-ui-router/release/angular-ui-router.min.js',
+    nodePath + 'angular-ui-bootstrap/dist/ui-bootstrap.js',
+    nodePath + 'angular-ui-bootstrap/dist/ui-bootstrap-tpls.js',
     nodePath + 'jquery/dist/jquery.min.js',
     nodePath + 'tether/dist/js/tether.min.js',
     nodePath + 'bootstrap/dist/js/bootstrap.min.js',

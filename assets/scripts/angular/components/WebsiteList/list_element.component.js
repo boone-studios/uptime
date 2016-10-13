@@ -9,24 +9,14 @@
 
       templateUrl: 'WebsiteList/list_element.html',
 
-      controller: ['$scope', '$http', function ($scope, $http) {
+      controller: ['$scope', '$http', 'ConfigService', '$q', function ($scope, $http, ConfigService, $q) {
         this.statuses = [];
-        this.sites = [
-          {
-            title: 'Boone Software',
-            url: 'https://boone.io',
-            method: 'GET',
-            status: 'online',
-            text: 'Online',
-          },
-          {
-            title: '2 Cool Percussion',
-            url: 'http://2coolpercussion.com',
-            method: 'GET',
-            status: 'error',
-            text: '404 Not Found',
-          },
-        ];
+        this.sites = ConfigService.getSites();
+
+        window.bnAddSite = function (site) {
+          ConfigService.addSite(site);
+        };
+        
 
         angular.forEach(this.sites, function (key, value) {
           var req = {
