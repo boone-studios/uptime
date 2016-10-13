@@ -8,10 +8,8 @@
 const mongoose = require('mongoose');
 
 let schema = mongoose.Schema({
-  hostname: String,
-  port: String,
-  method: String,
-  path: String
+  url: String,
+  method: String
 });
 
 module.exports = mongoose.model('Endpoint', schema);

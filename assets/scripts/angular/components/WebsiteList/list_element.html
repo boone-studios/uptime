@@ -10,7 +10,10 @@
             </div>
         </h4>
 
-        <span class="text-muted">{{ site.last_checked || 'Status pending' }}</span>
+        <div class="duration text-muted">
+            <div ng-show="!site.checked">Status pending</div>
+            <div ng-hide="!site.checked">Last checked <span am-time-ago="site.checked"></span></div>
+        </div>
     </div>
 
     <div id="{{ 'panel-' + $index }}" class="panel-content panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">

@@ -9,15 +9,21 @@ const http = require('q-io/http');
 const q = require('q');
 const _ = require('underscore');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const EndpointCtrl = require('./controllers/endpoint');
 
 // Connect to DB
-//mongoose.connect('mongodb://localhost/uptime');
+mongoose.connect('mongodb://localhost/uptime');
 
 // Local dependencies
 //const statusCode = require('./status-code');
 
 // Initialize Express
 const app = express();
+
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 // Serve all static files in public folder
 app.use(express.static(__dirname + '/public'));
@@ -30,6 +36,7 @@ app.get('/status', function (req, res) {
     if (Object.keys(data).length) {
       // Define variables
       var options = _.pick(data, ['url', 'method']);
+      console.log(options);
 
       // Send HTTP request
       http.request(options).then((response) => {
@@ -44,6 +51,9 @@ app.get('/status', function (req, res) {
     res.sendStatus(406);
   }
 });
+
+app.get('/api/monitors', EndpointCtrl.index);
+app.post('/api/monitors', EndpointCtrl.post);
 
 app.listen(3000, () => {
   console.log('Application up and running!');

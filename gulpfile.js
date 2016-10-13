@@ -76,6 +76,9 @@ gulp.task('angular', () => {
     errorHandler: reportError,
   }))
   .pipe(sourcemaps.init())
+    .pipe(babel({
+      presets: ['es2015']
+    }))
   .pipe(concat('app.js'))
   .pipe(annotate())
   .pipe(uglify({
@@ -100,6 +103,10 @@ gulp.task('modules', () => {
     nodePath + 'jquery/dist/jquery.min.js',
     nodePath + 'tether/dist/js/tether.min.js',
     nodePath + 'bootstrap/dist/js/bootstrap.min.js',
+    nodePath + 'moment/moment.js',
+    nodePath + 'angular-moment/angular-moment.min.js',
+    nodePath + 'underscore/underscore-min.js',
+    nodePath + 'angular-underscore/index.js',
   ])
     .pipe(plumber({
       errorHandler: reportError,

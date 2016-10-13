@@ -5,41 +5,37 @@
     .module('uptime')
     .component('listElementComponent', {
       bindings: {
+
       },
 
       templateUrl: 'WebsiteList/list_element.html',
 
-      controller: ['$scope', '$http', 'ConfigService', '$q', function ($scope, $http, ConfigService, $q) {
+      controller: ['_', '$scope', '$http', 'CheckStatusService', function (_, $scope, $http, Status) {
         this.statuses = [];
-        this.sites = ConfigService.getSites();
+        this.sites = [
+          {
+            title: 'Boone Software',
+            url: 'https://boone.io',
+            method: 'GET',
+            status: 'pending',
+            text: '',
+            checked: 0,
+          },
+          {
+            title: '2 Cool Percussion',
+            url: 'http://2coolpercussion.com',
+            method: 'GET',
+            status: 'pending',
+            text: '',
+            checked: 0,
+          },
+        ];
 
-        window.bnAddSite = function (site) {
-          ConfigService.addSite(site);
-        };
-        
-
-        angular.forEach(this.sites, function (key, value) {
-          var req = {
-            data: key,
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            method: key.method,
-            url: '/status',
-          };
-
-          $http
-            .get('/status', {
-              params: {
-                data: key,
-              },
-            })
-            .then(function (response) {
-              console.log(response);
-            },
-
-            function (error) {
-              console.error(error);
+        angular.forEach(this.sites, function (obj, pos) {
+          // Check site status
+          Status.check(obj)
+            .then(function () {
+              _.extend(obj, Status.getStatus());
             });
         });
       }],
