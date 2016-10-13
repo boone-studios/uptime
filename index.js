@@ -11,6 +11,8 @@ const _ = require('underscore');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const EndpointCtrl = require('./controllers/endpoint');
+const ResultCtrl = require('./controllers/result');
+const Monitor = require('./monitor/index');
 
 // Connect to DB
 mongoose.connect('mongodb://localhost/uptime');
@@ -55,6 +57,10 @@ app.get('/status', function (req, res) {
 app.get('/api/monitors', EndpointCtrl.index);
 app.post('/api/monitors', EndpointCtrl.post);
 
+app.get('/api/results', ResultCtrl.index);
+
 app.listen(3000, () => {
+  let monitor = new Monitor();
+  monitor.init();
   console.log('Application up and running!');
 });

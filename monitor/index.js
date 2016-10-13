@@ -12,6 +12,7 @@ const Endpoint  = require('../schema/endpoint');
 const Result    = require('../schema/result');
 
 class Monitor {
+
   getEndpoints() {
     let deferred = q.defer();
 
@@ -44,10 +45,11 @@ class Monitor {
   testEndpoint(endpoint) {
     let deferred = q.defer();
 
-    http.request(options).then((res) => {
+    http.request(endpoint).then((res) => {
       deferred.resolve({
-        code: res.code,
-        body: res.body,
+        code: res.status,
+        endpoint_id: endpoint._id,
+        time: new Date(),
         headers: res.headers,
       });
     });
@@ -56,12 +58,17 @@ class Monitor {
   }
 
   main() {
+    console.log('[INFO] Initializing Monitor app.');
     this.getEndpoints()
       .then((endpoints) => q.all(endpoints.map((endpoint) =>  this.testEndpoint(endpoint))))
-      .then((results) => q.all(results.map((result) =>  this.saveResult(result))));
+      .then((results) => q.all(results.map((result) =>  this.saveResult(result))))
+      .then((saved) => console.log(saved.length + ' results saved to DB'))
+      .catch((error) => console.log('[ERROR] ' + error));
   }
 
   init() {
-    setInterval(this.main, 5000);
+    setInterval(this.main.bind(this), 5000);
   }
 }
+
+module.exports = Monitor;
