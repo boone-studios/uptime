@@ -100,6 +100,8 @@ gulp.task('modules', () => {
     nodePath + 'bootstrap/dist/js/bootstrap.min.js',
     nodePath + 'moment/moment.js',
     nodePath + 'angular-moment/angular-moment.min.js',
+    nodePath + 'underscore/underscore-min.js',
+    nodePath + 'angular-underscore/index.js',
   ])
     .pipe(plumber({
       errorHandler: reportError,

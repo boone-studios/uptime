@@ -1,3 +1,15 @@
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .status {
   border-radius: 100%;
   display: inline-block;
@@ -14,7 +26,9 @@
   }
 
   &.status-pending {
+    animation: pulse 2.5s infinite;
     background-color: $oc-gray-5;
+    transition: ease;
   }
 
   &.status-warning {

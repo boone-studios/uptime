@@ -9,7 +9,7 @@
 
       templateUrl: 'WebsiteList/list_element.html',
 
-      controller: ['$scope', '$http', function ($scope, $http) {
+      controller: ['_', '$scope', '$http', 'CheckStatusService', function (_, $scope, $http, Status) {
         this.statuses = [];
         this.sites = [
           {
@@ -30,37 +30,11 @@
           },
         ];
 
-        angular.forEach(this.sites, function (key, value) {
-          var req = {
-            data: key,
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            method: key.method,
-            url: '/status',
-          };
-
-          $http
-            .get('/status', {
-              params: {
-                data: key,
-              },
-            })
-            .then(function (response) {
-              console.log(response);
-              switch (response.status) {
-                case 200:
-                  key.status = 'online';
-                  key.text = 'Online';
-                  key.checked = Date.now();
-                  break;
-                default:
-                  break;
-              }
-            },
-
-            function (error) {
-              console.error(error);
+        angular.forEach(this.sites, function (obj, pos) {
+          // Check site status
+          Status.check(obj)
+            .then(function () {
+              _.extend(obj, Status.getStatus());
             });
         });
       }],
