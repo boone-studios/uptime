@@ -1,6 +1,10 @@
 # Uptime
 
-Monitor client website uptime
+With its simple interface, Uptime provides a way to monitor website uptime for either in-house projects or clientele. Many services that provide the same functionality require you to pay out of pocket, and typically are not self-hosted. Though several robust open source applications like this exist already, Uptime is still to be a powerful open source alternative that one can host their own, on any desktop or laptop device.
+
+## Disclaimer
+
+This application is still under development and has not officially released yet. Though it is mostly functional and free for contribution, we please ask you to keep in mind that it is not ready for production just yet.
 
 ## Requirements
 
@@ -47,3 +51,5 @@ Visit the website for more information.
 
 - Nathanael McDaniel &lt;[nathanael@boone.io](mailto:nathanael@boone.io)&gt;
 - Wes King &lt;[wes@boone.io](mailto:wes@boone.io)&gt;
+
+Interested in contributing? Since Uptime is still in its infancy there are a lot of places this application can go. It can become whatever our imaginations allow it. If you have an idea to extend this application, feel free to fork this repo and, if we find your contribution as much needed to Uptime, we will merge it in.
