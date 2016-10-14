@@ -4,12 +4,15 @@
  *********************************/
 
 // Node dependencies
+const _ = require('underscore');
+const bodyParser = require('body-parser');
 const express = require('express');
 const http = require('q-io/http');
-const q = require('q');
-const _ = require('underscore');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
+const path = require('path');
+const q = require('q');
+
+// Classes
 const EndpointCtrl = require('./controllers/endpoint');
 const ResultCtrl = require('./controllers/result');
 const Monitor = require('./monitor/index');
@@ -17,18 +20,16 @@ const Monitor = require('./monitor/index');
 // Connect to DB
 mongoose.connect('mongodb://localhost/uptime');
 
-// Local dependencies
-//const statusCode = require('./status-code');
-
 // Initialize Express
 const app = express();
+const port = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({
-  extended: true
+  extended: true,
 }));
 
 // Serve all static files in public folder
-app.use(express.static(__dirname + '/public'));
+app.use('/', express.static(path.join(__dirname, 'public')));
 
 app.get('/status', function (req, res) {
   if (req.accepts('application/json')) {
@@ -54,13 +55,14 @@ app.get('/status', function (req, res) {
   }
 });
 
+// API
 app.get('/api/monitors', EndpointCtrl.index);
-app.post('/api/monitors', EndpointCtrl.post);
-
 app.get('/api/results', ResultCtrl.index);
 
-app.listen(3000, () => {
-  let monitor = new Monitor();
+app.post('/api/monitors', EndpointCtrl.post);
+
+app.listen(port, () => {
+  var monitor = new Monitor();
   monitor.init();
   console.log('Application up and running!');
 });

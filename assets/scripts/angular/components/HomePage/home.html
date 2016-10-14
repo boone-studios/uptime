@@ -1,3 +1,24 @@
 <div class="website-list">
     <list-element-component></list-element-component>
 </div>
+
+<modal visible="configModal" backdrop="static">
+    <modal-header title="Configuration"></modal-header>
+    <modal-body>
+        <div class="form-group">
+            <h5>Theme Settings</h5>
+            <p class="m-y-1 text-muted">Customize the overall appearance of the monitor. The dark theme is recommended for easier readability, especially for late nights on call.</p>
+            <select class="form-control custom-select" ng-model="theme">
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <h5>Monitors</h5>
+        </div>
+    </modal-body>
+    <modal-footer>
+        <button class="btn btn-primary" ng-click="hide()">Save</button>
+    </modal-footer>
+</modal>

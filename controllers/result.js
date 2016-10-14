@@ -1,3 +1,5 @@
+'use strict';
+
 const Result = require('../schema/result');
 const q = require('q');
 
@@ -7,8 +9,9 @@ class ResultController {
       if (error) {
         return res.json(error);
       }
+
       return res.json(results);
-    })
+    });
   }
 }
 

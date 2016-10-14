@@ -1,0 +1,28 @@
+.modal-content {
+  background-color: $oc-gray-8;
+  border: 0;
+  box-shadow: 0 5px 0 0 $oc-gray-9;
+
+  .close {
+    color: $oc-gray-5;
+    text-shadow: none;
+
+    &:hover {
+      color: $oc-gray-0;
+    }
+  }
+
+  .modal-body {
+    background-color: darken($oc-gray-8, 5%);
+  }
+
+  .modal-footer {
+    border: 0;
+    text-align: center;
+  }
+
+  .modal-header {
+    border: 0;
+    text-align: center;
+  }
+}

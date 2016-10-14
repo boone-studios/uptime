@@ -1,3 +1,5 @@
+'use strict';
+
 const Endpoint = require('../schema/endpoint');
 const q = require('q');
 
@@ -13,6 +15,7 @@ class EndpointController {
       if (error) {
         return res.sendStatus(404);
       }
+
       return res.json(results);
     });
   }
@@ -26,14 +29,16 @@ class EndpointController {
   static post(req, res) {
     let entity = new Endpoint({
       url: req.body.url,
-      method: req.body.method
+      method: req.body.method,
     });
+
     entity.save(function (error, endpoint) {
       if (error) {
         return res.json(error);
       }
+
       return res.json(endpoint);
-    })
+    });
   }
 
 }

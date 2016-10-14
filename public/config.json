@@ -1,4 +1,5 @@
 {
     "brand" : "Uptime",
-    "brand_raw" : "UP<strong>TIME</strong>"
+    "brand_raw" : "UP<strong>TIME</strong>",
+    "theme" : "dark"
 }
