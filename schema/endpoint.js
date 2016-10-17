@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 
 let schema = mongoose.Schema({
   url: String,
-  method: String
+  method: String,
 });
 
 module.exports = mongoose.model('Endpoint', schema);

@@ -18,7 +18,7 @@ const ResultCtrl = require('./controllers/result');
 const Monitor = require('./monitor/index');
 
 // Connect to DB
-mongoose.connect('mongodb://localhost/uptime');
+mongoose.connect('mongodb://localhost:27017/uptime');
 
 // Initialize Express
 const app = express();
@@ -39,7 +39,6 @@ app.get('/status', function (req, res) {
     if (Object.keys(data).length) {
       // Define variables
       var options = _.pick(data, ['url', 'method']);
-      console.log(options);
 
       // Send HTTP request
       http.request(options).then((response) => {

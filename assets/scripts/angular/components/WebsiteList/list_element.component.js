@@ -21,14 +21,6 @@
             text: '',
             checked: 0,
           },
-          {
-            title: '2 Cool Percussion',
-            url: 'http://2coolpercussion.com',
-            method: 'GET',
-            status: 'pending',
-            text: '',
-            checked: 0,
-          },
         ];
 
         angular.forEach(this.sites, function (obj, pos) {

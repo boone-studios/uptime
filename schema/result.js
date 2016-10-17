@@ -11,7 +11,7 @@ let schema = mongoose.Schema({
   endpoint_id: String,
   time: Date,
   code: String,
-  headers: Array
+  headers: Array,
 });
 
 module.exports = mongoose.model('Result', schema);

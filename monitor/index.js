@@ -67,7 +67,7 @@ class Monitor {
   }
 
   init() {
-    setInterval(this.main.bind(this), 5000);
+    setInterval(this.main.bind(this), 10000);
   }
 }
 

@@ -20,6 +20,7 @@
     "angular": "^1.5.8",
     "angular-moment": "^1.0.0",
     "angular-sanitize": "^1.5.8",
+    "angular-ui-bootstrap": "^2.2.0",
     "angular-ui-router": "^1.0.0-beta.3",
     "angular-underscore": "0.0.3",
     "body-parser": "^1.15.2",
