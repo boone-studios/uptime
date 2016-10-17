@@ -18,7 +18,7 @@ const ResultCtrl = require('./controllers/result');
 const Monitor = require('./monitor/index');
 
 // Connect to DB
-mongoose.connect('mongodb://localhost:27017/uptime');
+mongoose.connect('mongodb://127.0.0.1:27017/uptime');
 
 // Initialize Express
 const app = express();
