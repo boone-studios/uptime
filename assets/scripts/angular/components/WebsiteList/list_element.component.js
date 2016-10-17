@@ -14,8 +14,24 @@
         this.statuses = [];
         this.sites = [
           {
-            title: 'Boone Software',
-            url: 'https://boone.io',
+            title: '200 Status Test',
+            url: 'http://httpstat.us/',
+            method: 'GET',
+            status: 'pending',
+            text: '',
+            checked: 0,
+          },
+          {
+            title: '204 Status Test',
+            url: 'http://httpstat.us/204',
+            method: 'GET',
+            status: 'pending',
+            text: '',
+            checked: 0,
+          },
+          {
+            title: '500 Status Test',
+            url: 'http://httpstat.us/500',
             method: 'GET',
             status: 'pending',
             text: '',
