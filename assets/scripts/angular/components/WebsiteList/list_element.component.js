@@ -3,6 +3,12 @@
 
   angular
     .module('uptime')
+    /**
+     * Component for website monitor element
+     * @inner statusElementComponent
+     * @kind Component
+     * @type {Object}
+     */
     .component('listElementComponent', {
       bindings: {
 
@@ -20,6 +26,7 @@
             status: 'pending',
             text: '',
             checked: 0,
+            duration: 60000,
           },
           {
             title: '204 Status Test',

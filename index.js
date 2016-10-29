@@ -8,6 +8,7 @@ const _ = require('underscore');
 const bodyParser = require('body-parser');
 const express = require('express');
 const http = require('q-io/http');
+const json = require('json');
 const mongoose = require('mongoose');
 const path = require('path');
 const q = require('q');
@@ -18,7 +19,10 @@ const ResultCtrl = require('./controllers/result');
 const Monitor = require('./monitor/index');
 
 // Connect to DB
-mongoose.connect('mongodb://127.0.0.1:27017/uptime');
+mongoose.connect('mongodb://localhost:27017/uptime');
+
+// Set Mongoose config
+mongoose.set('debug', true);
 
 // Initialize Express
 const app = express();

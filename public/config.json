@@ -1,5 +1,6 @@
 {
     "brand" : "Uptime",
     "brand_raw" : "UP<strong>TIME</strong>",
+    "environment" : "debug",
     "theme" : "dark"
 }

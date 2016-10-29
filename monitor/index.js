@@ -21,6 +21,7 @@ class Monitor {
         deferred.reject(error);
       }
 
+      console.log('Saved successfully: ', results);
       deferred.resolve(results);
     });
 
@@ -36,6 +37,7 @@ class Monitor {
         deferred.reject(error);
       }
 
+      console.log('Saved successfully: ', result);
       deferred.resolve(entity);
     });
 
@@ -67,7 +69,7 @@ class Monitor {
   }
 
   init() {
-    setInterval(this.main.bind(this), 10000);
+    setInterval(this.main.bind(this), 5000);
   }
 }
 

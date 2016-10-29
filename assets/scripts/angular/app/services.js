@@ -3,6 +3,11 @@
 
   angular
     .module('uptime')
+    /**
+     * Loads configuration file
+     * @kind Service
+     * @type {Object}
+     */
     .factory('ConfigService', function ($http) {
       var data = {};
 
@@ -42,6 +47,11 @@
         },
       };
     })
+    /**
+     * Checks status of websites
+     * @kind Service
+     * @type {Object}
+     */
     .factory('CheckStatusService', function ($http, ResponseCodeService) {
       var data = {};
 
