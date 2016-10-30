@@ -1,7 +1,6 @@
 'use strict';
 
 const Endpoint = require('../schema/endpoint');
-const q = require('q');
 
 class EndpointController {
   /**
@@ -11,13 +10,12 @@ class EndpointController {
    * @param res
    */
   static index(req, res) {
-    Endpoint.find(function (error, results) {
-      if (error) {
-        return res.sendStatus(404);
-      }
+    let query = Endpoint.find();
+    let promise = query.exec();
 
-      return res.json(results);
-    });
+    promise
+      .then((results) => res.json(results), (error) => res.sendStatus(404))
+      .catch((error) => console.error(error));
   }
 
   /**
@@ -32,13 +30,10 @@ class EndpointController {
       method: req.body.method,
     });
 
-    entity.save(function (error, endpoint) {
-      if (error) {
-        return res.json(error);
-      }
-
-      return res.json(endpoint);
-    });
+    entity
+      .save()
+      .then((endpoint) => res.json(endpoint), (error) => res.json(error))
+      .catch((error) => console.error(error));
   }
 
 }

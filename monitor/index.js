@@ -15,15 +15,12 @@ class Monitor {
 
   getEndpoints() {
     let deferred = q.defer();
+    let query = Endpoint.find();
+    let promise = query.exec();
 
-    Endpoint.find((error, results) => {
-      if (error) {
-        deferred.reject(error);
-      }
-
-      console.log('Saved successfully: ', results);
-      deferred.resolve(results);
-    });
+    promise
+      .then((results) => deferred.resolve(results), (error) => deferred.reject(error))
+      .catch((error) => console.error(error));
 
     return deferred.promise;
   }
@@ -32,14 +29,10 @@ class Monitor {
     let deferred = q.defer();
     let entity = new Result(result);
 
-    entity.save((error, entity) => {
-      if (error) {
-        deferred.reject(error);
-      }
-
-      console.log('Saved successfully: ', result);
-      deferred.resolve(entity);
-    });
+    entity
+      .save()
+      .then((entity) => deferred.resolve(entity), (error) => deferred.reject(error))
+      .catch((error) => console.error(error));
 
     return deferred.promise;
   }
@@ -47,14 +40,16 @@ class Monitor {
   testEndpoint(endpoint) {
     let deferred = q.defer();
 
-    http.request(endpoint).then((res) => {
-      deferred.resolve({
-        code: res.status,
-        endpoint_id: endpoint._id,
-        time: new Date(),
-        headers: res.headers,
+    http
+      .request(endpoint)
+      .then((res) => {
+        deferred.resolve({
+          code: res.status,
+          endpoint_id: endpoint._id,
+          time: new Date(),
+          headers: res.headers,
+        });
       });
-    });
 
     return deferred.promise;
   }

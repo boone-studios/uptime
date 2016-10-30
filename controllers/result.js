@@ -1,17 +1,15 @@
 'use strict';
 
 const Result = require('../schema/result');
-const q = require('q');
 
 class ResultController {
   static index(req, res) {
-    Result.find(function (error, results) {
-      if (error) {
-        return res.json(error);
-      }
+    let query = Result.find();
+    let promise = query.exec();
 
-      return res.json(results);
-    });
+    promise
+      .then((results) => res.json(results), (error) => res.json(error))
+      .catch((error) => console.error(error));
   }
 }
 
