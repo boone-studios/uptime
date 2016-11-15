@@ -7,7 +7,7 @@
 // Dependencies
 const mongoose = require('mongoose');
 
-let schema = mongoose.Schema({
+let schema = new mongoose.Schema({
   url: String,
   method: String,
 });

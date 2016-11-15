@@ -16,7 +16,7 @@ const q = require('q');
 // Global application configuration
 require('dotenv').config();
 
-// Mongoose promise dropin
+// Mongoose promise drop-in
 mongoose.Promise = require('q').Promise;
 
 // Classes
@@ -26,6 +26,10 @@ const Monitor = require('./monitor/index');
 
 // Connect to DB
 mongoose.connect(`mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`);
+
+mongoose.connection.on('connected', () => {
+  console.log(`Successfully connected to MongoDB on port ${process.env.DB_PORT}`);
+});
 
 // Set Mongoose config
 mongoose.set('debug', true);
@@ -73,5 +77,5 @@ app.post('/api/monitors', EndpointCtrl.post);
 app.listen(port, () => {
   var monitor = new Monitor();
   monitor.init();
-  console.log('Application up and running!');
+  console.log('Successfully initialized Uptime');
 });

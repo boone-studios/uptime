@@ -26,8 +26,8 @@ class EndpointController {
    */
   static post(req, res) {
     let entity = new Endpoint({
-      url: req.body.url,
-      method: req.body.method,
+      url: req.query.url,
+      method: req.query.method,
     });
 
     entity

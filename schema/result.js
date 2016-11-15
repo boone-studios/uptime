@@ -7,7 +7,7 @@
 // Dependencies
 const mongoose = require('mongoose');
 
-let schema = mongoose.Schema({
+let schema = new mongoose.Schema({
   endpoint_id: String,
   time: Date,
   code: String,
