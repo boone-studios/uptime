@@ -25,17 +25,33 @@ class EndpointController {
    * @param res
    */
   static post(req, res) {
-    let entity = new Endpoint({
-      url: req.query.url,
-      method: req.query.method,
-    });
+    // Set our variables, testing either body or querystring
+    let url = req.body.url || req.query.url;
+    let method = req.body.method || req.query.method;
 
-    entity
-      .save()
-      .then((endpoint) => res.json(endpoint), (error) => res.json(error))
-      .catch((error) => console.error(error));
+    // Make sure we're not adding an empty monitor
+    if (typeof url === 'undefined' && typeof method === 'undefined') {
+      // Tell the console there's been an error
+      console.error('[ERROR] Trying to add empty monitor');
+
+      // Inform the user we couldn't do it
+      res.json({
+        message: 'Cannot add empty monitor',
+      });
+    } else {
+      // Create new entity
+      let entity = new Endpoint({
+        url: url,
+        method: method,
+      });
+
+      // Save result or catch errors
+      entity
+        .save()
+        .then((endpoint) => res.json(endpoint), (error) => res.json(error))
+        .catch((error) => console.error(error));
+    }
   }
-
 }
 
 module.exports = EndpointController;
