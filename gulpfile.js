@@ -77,7 +77,7 @@ gulp.task('angular', () => {
   }))
   .pipe(sourcemaps.init())
     .pipe(babel({
-      presets: ['es2015']
+      presets: ['es2015'],
     }))
   .pipe(concat('app.js'))
   .pipe(annotate())
@@ -128,10 +128,10 @@ gulp.task('sass', () => {
     }))
     .pipe(sourcemaps.init())
     .pipe(sass({
-        includePaths: [
-            './assets/styles/',
-            './node_modules/',
-        ],
+      includePaths: [
+        './assets/styles/',
+        './node_modules/',
+      ],
     }))
     .pipe(prefix())
     .pipe(minify())

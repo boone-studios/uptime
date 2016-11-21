@@ -1,4 +1,4 @@
-# Uptime
+# Uptime ![Dependencies](https://david-dm.org/boone-software/uptime.svg)
 
 With its simple interface, Uptime provides a way to monitor website uptime for either in-house projects or clientele. Many services that provide the same functionality require you to pay out of pocket, and typically are not self-hosted. Though several robust open source applications like this exist already, Uptime is still to be a powerful open source alternative that one can host their own, on any desktop or laptop device.
 
