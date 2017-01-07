@@ -35,7 +35,8 @@
     "path": "^0.12.7",
     "q": "^1.4.1",
     "q-io": "^1.13.2",
-    "tether": "^1.3.7"
+    "tether": "^1.3.7",
+    "voca": "^1.0.0"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.16.0",

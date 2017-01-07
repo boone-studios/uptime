@@ -54,8 +54,7 @@ class Monitor {
     return deferred.promise;
   }
 
-  main() {
-    console.log('[INFO] Initializing Monitor app.');
+  main() {    
     this.getEndpoints()
       .then((endpoints) => q.all(endpoints.map((endpoint) =>  this.testEndpoint(endpoint))))
       .then((results) => q.all(results.map((result) =>  this.saveResult(result))))
