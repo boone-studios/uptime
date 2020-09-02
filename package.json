@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/boone-software/uptime#readme",
   "dependencies": {
-    "angular": "^1.5.8",
+    "angular": "^1.8.0",
     "angular-moment": "^1.0.0",
     "angular-sanitize": "^1.5.8",
     "angular-ui-bootstrap": "^2.2.0",

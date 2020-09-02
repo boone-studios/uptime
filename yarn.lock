@@ -65,9 +65,9 @@ angular-underscore@0.0.3:
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/angular-underscore/-/angular-underscore-0.0.3.tgz#f703e6e39d5174416c5f9cd2cf279ef8af94dab4"
 
-angular@^1.5.8:
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/angular/-/angular-1.6.1.tgz#a7b6d763a74c157325692619e97257e69d9b6a27"
+angular@^1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/angular/-/angular-1.8.0.tgz#b1ec179887869215cab6dfd0df2e42caa65b1b51"
 
 ansi-regex@^2.0.0:
   version "2.0.0"
